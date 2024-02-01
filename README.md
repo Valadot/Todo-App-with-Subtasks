@@ -25,9 +25,6 @@ Users should be able to:
 - Repeat a Todo
 - The ProgressCircle should show the current percentage of completion
 
-### Links
-
-- Live Site URL: [Click for the Live Site](https://e-commerce-product-page-bay.vercel.app/)
 
 ## My process
 

@@ -171,3 +171,7 @@ export const DeleteButton = styled.button`
   align-items: center;
   cursor: pointer;
 `;
+
+export const StyledButtonLink = styled(Link)`
+  text-decoration: none;
+`;

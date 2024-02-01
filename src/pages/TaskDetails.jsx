@@ -1,7 +1,7 @@
 import { useParams, Link } from "react-router-dom";
 import { TodoContext } from "../contexts/TodoContext";
 import React, { useContext, useEffect, useState } from "react";
-import { Home } from "./Home";
+import Home from "./Home";
 import ProgressCircle from "../components/ProgressCircle/ProgressCircle";
 import {
   Container,
@@ -21,7 +21,8 @@ import {
   ButtonContainer,
   RepeatButton,
   SubtaskContainer,
-  DeleteButton
+  DeleteButton,
+  StyledButtonLink,
 } from "./TaskDetails.styles";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
@@ -32,7 +33,7 @@ import {
   faArrowUp,
   faCheck,
   faArrowsRotate,
-  faTrashCan
+  faTrashCan,
 } from "@fortawesome/free-solid-svg-icons";
 
 const TaskDetails = () => {
@@ -49,19 +50,22 @@ const TaskDetails = () => {
 
   const handleClick = (sub) => {
     sub.completed = !sub.completed;
-    let doneSubtasks = todo.subtasks.filter((sub) => sub.completed === true)
-      .length;
+    let doneSubtasks = todo.subtasks.filter(
+      (sub) => sub.completed === true,
+    ).length;
     setDoneSubs(doneSubtasks);
   };
 
-  let doneSubtasks = todo.subtasks.filter((sub) => sub.completed === true)
-    .length;
+  let doneSubtasks = todo.subtasks.filter(
+    (sub) => sub.completed === true,
+  ).length;
 
   const handleRepeatTask = (todo) => {
     todo.subtasks.map((sub) => (sub.completed = false));
 
-    let doneSubtasks = todo.subtasks.filter((sub) => sub.completed === true)
-      .length;
+    let doneSubtasks = todo.subtasks.filter(
+      (sub) => sub.completed === true,
+    ).length;
     setDoneSubs(doneSubtasks);
   };
 
@@ -177,7 +181,7 @@ const TaskDetails = () => {
           </RepeatButton>
         </div>
         <div>
-          <Link to="/">
+          <StyledButtonLink to="/">
             <DeleteButton onClick={(e) => deleteTodo(todo)}>
               <FontAwesomeIcon
                 icon={faTrashCan}
@@ -186,7 +190,7 @@ const TaskDetails = () => {
               />
               Delete Tasks
             </DeleteButton>
-          </Link>
+          </StyledButtonLink>
         </div>
       </ButtonContainer>
     </Container>
